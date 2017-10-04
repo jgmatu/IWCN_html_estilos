@@ -1,0 +1,32 @@
+/*
+Thanks to:
+http://css-tricks.com/perfect-full-page-background-image
+
+Photo:
+http://www.publicdomainpictures.net/view-image.php?image=44399
+*/
+
+.container{
+      padding: 25px;
+}
+
+img {
+      margin-bottom: 15px;
+}
+
+.img-responsive {
+    margin: 0 auto;
+}
+.col-md-6 {
+    border: 1px solid red;
+    border-radius: 5px;
+}
+
+.col-sm-3 {
+      border: 1px solid green;
+      border-radius: 5px;
+}
+
+.row {
+      background: rgba(0, 0, 0, 0.04);
+}
