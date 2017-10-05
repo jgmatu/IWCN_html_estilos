@@ -2,5 +2,5 @@
 
 Boostrap
 ===========
-      * [Plantilla] (https://jgmatu.github.io/IWCN_bootstrap_jquery/baloncesto/startbootstrap-round-about-gh-pages/index.html)
-      * [Manual] (https://jgmatu.github.io/IWCN_bootstrap_jquery/baloncesto/manual-bootstrap/index.html)
+*[Plantilla](https://jgmatu.github.io/IWCN_bootstrap_jquery/baloncesto/startbootstrap-round-about-gh-pages/index.html)
+*[Manual](https://jgmatu.github.io/IWCN_bootstrap_jquery/baloncesto/manual-bootstrap/index.html)
