@@ -60,10 +60,16 @@
             		</form>
             	</div>
             </section>
-
             <div id="dialog-email" title="Send Email">
-                  <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+                  <p id="email-payload"></p>
             </div>
-
+            <div id="progress-email" class="progress">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                        <span class="sr-only">0% Complete</span>
+                  </div>
+            </div>
+            <div id="email-send" title="Email Send!">
+                  <p id="date-email">The email is send!!</p>
+            </div>
 	</body>
 </html>

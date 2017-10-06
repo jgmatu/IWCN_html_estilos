@@ -4,17 +4,77 @@ const data = {
       "Alejandro" : "alejando@gmail.com",
       "Javi" : "javi@gmail.com"
 }
+
+const MAXDELAY = 2000;
+const DELAY = 350;
+const INCREMENT = (DELAY / MAXDELAY) * 100;
+const WAIT = 500;
+
+function progressEmail() {
+      var total = 0;
+      var progress = 0;
+
+      setProgressEmail();
+      var interval = setInterval(function() {
+            total += DELAY;
+            progress += INCREMENT;
+
+            if (total >= MAXDELAY) {
+                  clearInterval(interval);
+            }
+            $('.progress-bar').css('width', progress+'%').attr('aria-valuenow', progress);
+      }, DELAY);
+}
+
+function setProgressEmail() {
+      $("#contact").hide();
+      $("#progress-email").show();
+      $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
+}
+
+function endEmailSend() {
+      setTimeout(function() {
+            setContactsUI();
+            setDialogSendEmail();
+      }, MAXDELAY + WAIT);
+}
+
+function setContactsUI() {
+      $("#progress-email").hide();
+      $("#email-send").hide();
+      $("#contact").show();
+}
+
+function setDialogSendEmail() {
+      var  date = new Date();
+      var time = date.toLocaleTimeString();
+      var day = date.toDateString();
+      var finger = $("#email-send").text() + " "  + day + " " + time;
+
+      $("#email-send").text(finger);
+      $("#email-send").dialog("open");
+}
 $(document).ready(function(){
+      setContactsUI();
+
+      $("#email-send").dialog({
+            autoOpen : false,
+            width : "30%",
+            buttons: {
+                  Confirm : function() {
+                        $( this ).dialog( "close" );
+                  }
+            }
+      });
+
       $("#dialog-email").dialog({
             autoOpen : false,
             width : "30%",
             buttons: {
                   Confirm : function() {
-                        var dialog = this;
-                        setTimeout(function(){
-                              // Sending email...
-                              $( dialog ).dialog( "close" );
-                        }, 2000);
+                        progressEmail();
+                        endEmailSend();
+                        $( this ).dialog( "close" );
                   },
                   Cancel: function() {
                         $( this ).dialog( "close" );
@@ -23,22 +83,17 @@ $(document).ready(function(){
       });
 
       $("#send-email").click(function() {
-            var  date = new Date();
+            $("#email-payload").text($("#description").val());
 
-            var time = date.toLocaleTimeString();
-            var day = date.toDateString();
-            console.log( day + " " + time );
-            $("#dialog-email").dialog( "open" );
+            $("#email-payload").text($("#email-payload").text().split(' ').join(""));
+            $("#email-payload").text($("#email-payload").text().split("\n").join(""));
+
+            if ($("#email-payload").text()) {
+                  $("#dialog-email").dialog( "open" );
+            }
       });
 
       $('#sel-user').change(function() {
             $("#email").text(data[$(this).val()]);
       });
 });
-
-/*
-      Definir la select del formulario de los usuarios a los que se puede mandar la información.
-      Pop-up en el envío de correo de la persona seleccionada.
-
-      Simular carga de datos (Hacer una llamada tonta de red... Validar campos.. hora de mando del mensaje)
-*/
