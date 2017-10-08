@@ -3,6 +3,6 @@
 
 Boostrap
 ===========
-* [Plantilla](https://jgmatu.github.io/IWCN_bootstrap_jquery/baloncesto/startbootstrap-round-about-gh-pages/index.html)
+* [CV](https://jgmatu.github.io/IWCN_html_estilos/cv/cv.html)
 
-* [Manual](https://jgmatu.github.io/IWCN_bootstrap_jquery/baloncesto/manual-boostrap/index.html)
+* [Tablero Damas](https://jgmatu.github.io/IWCN_html_estilos/damero/damas.html)
